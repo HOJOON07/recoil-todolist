@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import RecoilRoot from "recoil";
+import TodoData from "./components/TodoData";
+
+// const todoIdState = atom({
+//   key: "todoIdState",
+//   default: 1,
+// });
+
+// const todoItemQuery = selector({
+//   // key: `todoItemQuery/${v1()}`,
+//   key: "todoItemQuery",
+//   get: async ({ get }) => {
+//     const id = get(todoIdState);
+
+//     const response = await axios.get(
+//       `https://jsonplaceholder.typicode.com/todos/${id}`
+//     );
+//     return response.data;
+//   },
+// });
 
 function App() {
+  // const data = useRecoilValue(todoItemQuery);
+
   return (
+    // <Suspense fallback={() => <p>Loading...</p>}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RecoilRoot>
+        <TodoData></TodoData>
+        {/* {data.title}
+      {data.userId} */}
+      </RecoilRoot>
     </div>
+    // </Suspense>
   );
 }
 
